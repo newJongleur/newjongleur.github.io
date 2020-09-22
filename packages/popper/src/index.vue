@@ -117,6 +117,10 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    popperStyle: {
+      type: Object as PropType<Partial<CSSStyleDeclaration>>,
+      default: null,
+    },
     pure: {
       type: Boolean,
       default: false,
@@ -176,6 +180,7 @@ export default defineComponent({
       onPopperMouseEnter,
       onPopperMouseLeave,
       popperClass,
+      popperStyle,
       popperId,
       pure,
       showArrow,
@@ -192,6 +197,7 @@ export default defineComponent({
         effect,
         name: transition,
         popperClass,
+        popperStyle,
         popperId,
         pure,
         onMouseEnter: onPopperMouseEnter,
