@@ -1,4 +1,4 @@
-import { isEmpty, castArray, isEqual } from 'lodash'
+import { castArray } from 'lodash'
 
 import {
   isObject,
@@ -118,8 +118,8 @@ export const kebabCase = hyphenate
 // reexport from lodash & vue shared
 export {
   hasOwn,
-  isEmpty,
-  isEqual,
+  // isEmpty,
+  // isEqual,
   isObject,
   isArray,
   isString,
