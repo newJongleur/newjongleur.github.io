@@ -209,7 +209,7 @@ export function arrayFlat(arr: unknown[]) {
 }
 
 export function deduplicate<T>(arr: T[]) {
-  return Array.from(new Set(arr))
+  return [...new Set(arr)]
 }
 
 /**

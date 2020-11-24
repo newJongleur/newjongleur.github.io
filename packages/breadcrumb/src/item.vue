@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, inject, ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 interface IBreadcrumbInject {
   separator: string
@@ -37,15 +38,16 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props: IBreadcrumbItemProps, ctx) {
+  setup(props: IBreadcrumbItemProps) {
     const link = ref(null)
     const parent: IBreadcrumbInject = inject('breadcrumb')
 
     onMounted(() => {
       link.value.setAttribute('role', 'link')
       link.value.addEventListener('click', () => {
-        const router = (ctx as any).$router
-        if (!props.to || !router) return
+        if (!props.to) return
+        const router = useRouter()
+        if (!router) return
         props.replace ? router.replace(props.to) : router.push(props.to)
       })
     })
