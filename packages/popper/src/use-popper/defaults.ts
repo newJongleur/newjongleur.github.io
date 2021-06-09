@@ -1,4 +1,4 @@
-import type { PropType  } from 'vue'
+import type { PropType } from 'vue'
 import type { Placement, PositioningStrategy, Instance as PopperInstance, Options } from '@popperjs/core'
 
 export enum Effect {
@@ -35,11 +35,9 @@ export type IPopperOptions = {
   visible: boolean
   stopPopperMouseEvent: boolean
   gpuAcceleration: boolean
-  fallbackPlacements: Array<Placement>
 }
 
 export const DEFAULT_TRIGGER = 'hover'
-const DEFAULT_FALLBACK_PLACEMENTS = ['auto']
 
 export default {
   // the arrow size is an equailateral triangle with 10px side length, the 3rd side length ~ 14.1px
@@ -145,9 +143,5 @@ export default {
   gpuAcceleration: {
     type: Boolean,
     default: true,
-  },
-  fallbackPlacements: {
-    type: Array as PropType<Placement[]>,
-    default: DEFAULT_FALLBACK_PLACEMENTS,
   },
 }

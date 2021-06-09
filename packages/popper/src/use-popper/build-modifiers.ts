@@ -1,11 +1,10 @@
-import type { StrictModifiers, Placement } from '@popperjs/core'
+import type { StrictModifiers } from '@popperjs/core'
 
 interface ModifierProps {
   offset?: number
   arrow?: HTMLElement
   arrowOffset?: number
   gpuAcceleration?: boolean
-  fallbackPlacements?: Array<Placement>
 }
 
 export default function buildModifier(props: ModifierProps, externalModifiers: StrictModifiers[] = []) {
@@ -15,7 +14,6 @@ export default function buildModifier(props: ModifierProps, externalModifiers: S
     arrowOffset,
     offset,
     gpuAcceleration,
-    fallbackPlacements,
   } = props
 
   const modifiers: Array<StrictModifiers> = [
@@ -40,7 +38,6 @@ export default function buildModifier(props: ModifierProps, externalModifiers: S
       name: 'flip',
       options: {
         padding: 5,
-        fallbackPlacements: fallbackPlacements ?? [],
       },
     },
     {
