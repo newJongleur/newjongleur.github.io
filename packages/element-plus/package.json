@@ -37,7 +37,7 @@
     "@popperjs/core": "^2.10.1",
     "@vueuse/core": "~6.1.0",
     "async-validator": "^3.4.0",
-    "dayjs": "1.x",
+    "dayjs": "1.10.7",
     "lodash": "^4.17.21",
     "mitt": "^2.1.0",
     "normalize-wheel": "^1.0.1",
