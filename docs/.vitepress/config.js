@@ -84,6 +84,7 @@ module.exports = {
       appId: '7DCTSU0WBW',
     },
     features,
+    langs: ['en-US', 'zh-CN', 'es', 'fr-FR', 'jp'],
   },
 
   markdown: {
