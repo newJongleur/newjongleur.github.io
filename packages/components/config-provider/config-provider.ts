@@ -1,17 +1,27 @@
 import { defineComponent } from 'vue'
+import { useLocaleProps, useLocale, useGlobalConfig } from '@element-plus/hooks'
+import { buildProp, definePropType, mutable } from '@element-plus/utils/props'
+import type { ButtonConfigContext } from '@element-plus/components/button'
 
-import { useLocaleProps, useLocale } from '@element-plus/hooks'
+export const configProviderProps = {
+  ...useLocaleProps,
+  // Add more configs
+  button: buildProp({
+    type: definePropType<ButtonConfigContext>(Object),
+    default: () => {
+      return mutable({
+        autoInsertSpace: true,
+      } as const)
+    },
+  }),
+}
 
 export const ConfigProvider = defineComponent({
   name: 'ElConfigProvider',
-  props: {
-    ...useLocaleProps,
-    // Add more configs
-  },
-
+  props: configProviderProps,
   setup(_, { slots }) {
     useLocale()
-
+    useGlobalConfig(_)
     return () => slots.default?.()
   },
 })
