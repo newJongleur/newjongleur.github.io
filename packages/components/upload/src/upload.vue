@@ -33,7 +33,7 @@ import ajax from './ajax'
 import UploadDragger from './upload-dragger.vue'
 
 import type { PropType } from 'vue'
-import type { Indexable, Nullable } from '@element-plus/utils/types'
+import type { Nullable } from '@element-plus/utils/types'
 import type { ListType, UploadFile, ElFile } from './upload.type'
 
 type IFileHanlder = (
@@ -152,7 +152,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const reqs = ref({} as Indexable<XMLHttpRequest | Promise<any>>)
+    const reqs = ref({} as Record<string, XMLHttpRequest | Promise<any>>)
     const mouseover = ref(false)
     const inputRef = ref(null as Nullable<HTMLInputElement>)
 

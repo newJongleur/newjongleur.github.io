@@ -1,6 +1,6 @@
 import { watch, unref } from 'vue'
 import { provideGlobalConfig } from '@element-plus/hooks'
-import { isNumber } from '@element-plus/utils/util'
+import { isNumber } from '@element-plus/utils-new'
 import { PopupManager } from '@element-plus/utils/popup-manager'
 import { version } from './version'
 import type { App, Plugin } from 'vue'

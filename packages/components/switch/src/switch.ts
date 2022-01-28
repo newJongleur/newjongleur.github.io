@@ -1,12 +1,17 @@
-import { buildProps, definePropType } from '@element-plus/utils/props'
+import {
+  buildProps,
+  definePropType,
+  isBoolean,
+  isNumber,
+  isString,
+  isValidComponentSize,
+} from '@element-plus/utils-new'
 import {
   UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
   INPUT_EVENT,
-} from '@element-plus/utils/constants'
-import { isBool, isNumber, isString } from '@element-plus/utils/util'
-import { isValidComponentSize } from '@element-plus/utils/validators'
-import type { ComponentSize } from '@element-plus/utils/types'
+} from '@element-plus/constants'
+import type { ComponentSize } from '@element-plus/constants'
 import type Switch from './switch.vue'
 import type { Component, ExtractPropTypes, PropType } from 'vue'
 
@@ -93,11 +98,11 @@ export type SwitchProps = ExtractPropTypes<typeof switchProps>
 
 export const switchEmits = {
   [UPDATE_MODEL_EVENT]: (val: boolean | string | number) =>
-    isBool(val) || isString(val) || isNumber(val),
+    isBoolean(val) || isString(val) || isNumber(val),
   [CHANGE_EVENT]: (val: boolean | string | number) =>
-    isBool(val) || isString(val) || isNumber(val),
+    isBoolean(val) || isString(val) || isNumber(val),
   [INPUT_EVENT]: (val: boolean | string | number) =>
-    isBool(val) || isString(val) || isNumber(val),
+    isBoolean(val) || isString(val) || isNumber(val),
 }
 export type SwitchEmits = typeof switchEmits
 

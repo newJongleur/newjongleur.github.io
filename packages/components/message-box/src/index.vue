@@ -154,9 +154,12 @@ import { ElOverlay } from '@element-plus/components/overlay'
 import { PopupManager } from '@element-plus/utils/popup-manager'
 import { on, off } from '@element-plus/utils/dom'
 import { EVENT_CODE } from '@element-plus/utils/aria'
-import { isValidComponentSize } from '@element-plus/utils/validators'
+import {
+  isValidComponentSize,
+  TypeComponents,
+  TypeComponentsMap,
+} from '@element-plus/utils-new'
 import { ElIcon } from '@element-plus/components/icon'
-import { TypeComponents, TypeComponentsMap } from '@element-plus/utils/icon'
 
 import type { PropType } from 'vue'
 import type { ComponentSize } from '@element-plus/utils/types'

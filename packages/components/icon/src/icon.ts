@@ -1,4 +1,4 @@
-import { definePropType, buildProps } from '@element-plus/utils/props'
+import { definePropType, buildProps } from '@element-plus/utils-new'
 import type { ExtractPropTypes } from 'vue'
 import type Icon from './icon.vue'
 

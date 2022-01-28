@@ -13,7 +13,7 @@ import {
 import { hasOwn } from '@vue/shared'
 
 import { isClient } from '@vueuse/core'
-import { isNumber, isString } from '@element-plus/utils/util'
+import { isNumber, isString } from '@element-plus/utils-new'
 
 import { useCache } from '../hooks/use-cache'
 import useWheel from '../hooks/use-wheel'

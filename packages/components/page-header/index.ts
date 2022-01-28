@@ -1,4 +1,4 @@
-import { withInstall } from '@element-plus/utils/with-install'
+import { withInstall } from '@element-plus/utils-new'
 
 import PageHeader from './src/page-header.vue'
 

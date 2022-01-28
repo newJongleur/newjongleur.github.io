@@ -2,9 +2,9 @@ import { computed, ref, watch, nextTick, onMounted } from 'vue'
 import { useTimeoutFn, isClient } from '@vueuse/core'
 
 import { useLockscreen, useRestoreActive, useModal } from '@element-plus/hooks'
-import { UPDATE_MODEL_EVENT } from '@element-plus/utils/constants'
+import { UPDATE_MODEL_EVENT } from '@element-plus/constants'
 import { PopupManager } from '@element-plus/utils/popup-manager'
-import { isNumber } from '@element-plus/utils/util'
+import { isNumber } from '@element-plus/utils-new'
 
 import type { CSSProperties, Ref, SetupContext } from 'vue'
 import type { DialogEmits, DialogProps } from './dialog'

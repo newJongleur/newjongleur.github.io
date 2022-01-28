@@ -1,4 +1,4 @@
-import { withInstall } from '@element-plus/utils/with-install'
+import { withInstall } from '@element-plus/utils-new'
 import Popper from './src/popper.vue'
 
 export { default as ElPopperArrow } from './src/arrow.vue'

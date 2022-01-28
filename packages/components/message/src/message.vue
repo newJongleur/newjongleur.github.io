@@ -52,7 +52,7 @@ import { useEventListener, useTimeoutFn } from '@vueuse/core'
 import { EVENT_CODE } from '@element-plus/utils/aria'
 import ElBadge from '@element-plus/components/badge'
 import { ElIcon } from '@element-plus/components/icon'
-import { TypeComponents, TypeComponentsMap } from '@element-plus/utils/icon'
+import { TypeComponents, TypeComponentsMap } from '@element-plus/utils-new'
 
 import { messageEmits, messageProps } from './message'
 import type { BadgeProps } from '@element-plus/components/badge'
