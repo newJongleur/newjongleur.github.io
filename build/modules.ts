@@ -1,5 +1,6 @@
 import { rollup } from 'rollup'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import css from 'rollup-plugin-css-only'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -30,6 +31,7 @@ export const buildModules = async () => {
       vue({
         isProduction: false,
       }),
+      vueJsx(),
       nodeResolve({
         extensions: ['.mjs', '.js', '.json', '.ts'],
       }),
