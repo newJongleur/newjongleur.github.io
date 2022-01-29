@@ -1,6 +1,6 @@
 import { inject, ref, computed, unref, provide, getCurrentInstance } from 'vue'
 import { configProviderContextKey } from '@element-plus/tokens'
-import { hasOwn, isObject, merge } from '@element-plus/utils/util'
+import { merge } from '@element-plus/utils/util'
 import { debugWarn } from '@element-plus/utils/error'
 import type { MaybeRef } from '@vueuse/core'
 import type { Ref, App } from 'vue'
@@ -11,16 +11,21 @@ import type { ConfigProviderContext } from '@element-plus/tokens'
 // refer to: https://github.com/element-plus/element-plus/issues/2610#issuecomment-887965266
 const cache = ref<ConfigProviderContext>({})
 
-export function useGlobalConfig<K extends keyof ConfigProviderContext>(
-  key: K
-): Ref<ConfigProviderContext[K]>
+export function useGlobalConfig<
+  K extends keyof ConfigProviderContext,
+  D extends ConfigProviderContext[K]
+>(
+  key: K,
+  defaultValue?: D
+): Ref<Exclude<ConfigProviderContext[K], undefined> | D>
 export function useGlobalConfig(): Ref<ConfigProviderContext>
-export function useGlobalConfig(key?: keyof ConfigProviderContext) {
+export function useGlobalConfig(
+  key?: keyof ConfigProviderContext,
+  defaultValue = undefined
+) {
   const config = inject(configProviderContextKey, cache)
   if (key) {
-    return isObject(config.value) && hasOwn(config.value, key)
-      ? computed(() => config.value[key])
-      : ref(undefined)
+    return computed(() => config.value?.[key] ?? defaultValue)
   } else {
     return config
   }

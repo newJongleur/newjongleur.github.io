@@ -1,7 +1,6 @@
 import { watch, unref } from 'vue'
-import { provideGlobalConfig } from '@element-plus/hooks'
+import { provideGlobalConfig, usePopupManager } from '@element-plus/hooks'
 import { isNumber } from '@element-plus/utils/util'
-import { PopupManager } from '@element-plus/utils/popup-manager'
 import { version } from './version'
 import type { App, Plugin } from 'vue'
 import type { ConfigProviderContext } from '@element-plus/tokens'
@@ -20,7 +19,7 @@ export const makeInstaller = (components: Plugin[] = []) => {
       () => unref(options).zIndex,
       () => {
         const zIndex = unref(options).zIndex
-        if (isNumber(zIndex)) PopupManager.globalInitialZIndex = zIndex
+        if (isNumber(zIndex)) usePopupManager().setGlobalInitialZIndex(zIndex)
       },
       { immediate: true }
     )
