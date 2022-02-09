@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, h, renderSlot } from 'vue'
+import { defineComponent, computed, inject } from 'vue'
 import { buildProps, definePropType, mutable } from '@element-plus/utils-v2'
 import { useNamespace } from '@element-plus/hooks'
 import type { ExtractPropTypes, CSSProperties } from 'vue'
@@ -106,14 +106,12 @@ export default defineComponent({
       return classes
     })
 
-    return () =>
-      h(
-        props.tag,
-        {
-          class: [ns.b(), classList.value],
-          style: style.value,
-        },
-        [renderSlot(slots, 'default')]
-      )
+    return () => (
+      <props.tag
+        v-slots={slots}
+        class={[ns.b(), classList.value]}
+        style={style.value}
+      />
+    )
   },
 })
