@@ -87,9 +87,10 @@ import {
   WarningFilled,
 } from '@element-plus/icons-vue'
 import { useNamespace } from '@element-plus/hooks'
+import { isFunction, isString } from '@element-plus/utils'
 import { progressProps } from './progress'
-import type { Color } from './progress'
 import type { CSSProperties } from 'vue'
+import type { Color } from './progress'
 
 defineOptions({
   name: 'ElProgress',
@@ -119,7 +120,7 @@ const relativeStrokeWidth = computed(() =>
 )
 
 const radius = computed(() => {
-  if (props.type === 'circle' || props.type === 'dashboard') {
+  if (['circle', 'dashboard'].includes(props.type)) {
     return Number.parseInt(
       `${50 - Number.parseFloat(relativeStrokeWidth.value) / 2}`,
       10
@@ -199,7 +200,7 @@ const content = computed(() => props.format(props.percentage))
 function getColors(color: Color[]) {
   const span = 100 / color.length
   const seriesColors = color.map((seriesColor, index) => {
-    if (typeof seriesColor === 'string') {
+    if (isString(seriesColor)) {
       return {
         color: seriesColor,
         percentage: (index + 1) * span,
@@ -212,9 +213,9 @@ function getColors(color: Color[]) {
 
 const getCurrentColor = (percentage: number) => {
   const { color } = props
-  if (typeof color === 'function') {
+  if (isFunction(color)) {
     return color(percentage)
-  } else if (typeof color === 'string') {
+  } else if (isString(color)) {
     return color
   } else {
     const colors = getColors(color)
