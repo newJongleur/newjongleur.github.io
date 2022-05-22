@@ -50,7 +50,7 @@ export const progressProps = buildProps({
     default: true,
   },
   color: {
-    type: definePropType<string | Color[] | ProgressFn>([
+    type: definePropType<string | ProgressColor[] | ProgressFn>([
       String,
       Array,
       Function,
