@@ -90,7 +90,7 @@ import { useNamespace } from '@element-plus/hooks'
 import { isFunction, isString } from '@element-plus/utils'
 import { progressProps } from './progress'
 import type { CSSProperties } from 'vue'
-import type { Color } from './progress'
+import type { ProgressColor } from './progress'
 
 defineOptions({
   name: 'ElProgress',
@@ -197,7 +197,7 @@ const progressTextSize = computed(() => {
 
 const content = computed(() => props.format(props.percentage))
 
-function getColors(color: Color[]) {
+function getColors(color: ProgressColor[]) {
   const span = 100 / color.length
   const seriesColors = color.map((seriesColor, index) => {
     if (isString(seriesColor)) {

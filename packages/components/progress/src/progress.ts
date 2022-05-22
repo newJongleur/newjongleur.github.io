@@ -2,8 +2,8 @@ import { buildProps, definePropType } from '@element-plus/utils'
 import type { ExtractPropTypes, SVGAttributes } from 'vue'
 import type Progress from './progress.vue'
 
-export type Color = { color: string; percentage: number }
-type ProgressFn = (percentage: number) => string
+export type ProgressColor = { color: string; percentage: number }
+export type ProgressFn = (percentage: number) => string
 
 export const progressProps = buildProps({
   type: {
